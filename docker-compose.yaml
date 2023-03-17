@@ -8,8 +8,12 @@ services:
       - "8000:8000"
       - "4040:4040"
     volumes:
-      - ./notebooks:/home/notebooks
       - ./data:/home/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1024M
 
   spark-master:
     container_name: spark-master
